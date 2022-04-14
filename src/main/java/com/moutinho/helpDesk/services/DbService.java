@@ -40,7 +40,7 @@ public class DbService {
 		tecnico.addPerfil(Perfil.ADMIN);
 		tecnicoRepository.saveAll(Arrays.asList(tecnico));
 
-		Cliente cliente = new Cliente(null, "Filipão gato", "06129317069", "GATO@LIVE.OI", "123456");
+		Cliente cliente = new Cliente(null, "Filipão gato", "06129317069", "GATO@LIVE.OI", encoder.encode("123"));
 		clienteRepository.saveAll(Arrays.asList(cliente));
 
 		Chamado chamado = new Chamado(null, Prioridade.MEDIA, Status.ANDAMENTO, "Chamado 01", "Primeiro Chamado",
