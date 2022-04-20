@@ -36,8 +36,10 @@ public class DbService {
 	private BCryptPasswordEncoder encoder;
  
 	public void instaciaDb() {
-		Tecnico tecnico = new Tecnico(null, "Olha aí", "85797230518", "lonk@seila.com", encoder.encode("123"));
+		Tecnico tecnico = new Tecnico(null, "Olha aí", "85797230518", "filipemoutinho@live.com", encoder.encode("123456"));
 		tecnico.addPerfil(Perfil.ADMIN);
+		
+		 
 		tecnicoRepository.saveAll(Arrays.asList(tecnico));
 
 		Cliente cliente = new Cliente(null, "Filipão gato", "06129317069", "GATO@LIVE.OI", encoder.encode("123"));

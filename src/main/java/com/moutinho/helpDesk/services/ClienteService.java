@@ -22,7 +22,7 @@ public class ClienteService {
 	@Autowired
 	private ClienteRepository clienteRepository;
 	@Autowired
-	private PessoaRepository pessoaRepository;	
+	private PessoaRepository pessoaRepository;
 	@Autowired
 	private BCryptPasswordEncoder encoder;
 
@@ -51,27 +51,32 @@ public class ClienteService {
 		}
 		pessoa = pessoaRepository.findByEmail(clienteDTO.getEmail());
 		if (pessoa.isPresent() && pessoa.get().getId() != clienteDTO.getId()) {
-			throw new com.moutinho.helpDesk.services.exceptions.DataIntegrityViolationException("Email Já cadatrado no sistema!");
+			throw new com.moutinho.helpDesk.services.exceptions.DataIntegrityViolationException(
+					"Email Já cadatrado no sistema!");
 		}
 	}
 
 	public Cliente update(Integer id, @Valid ClienteDTO clienteDTO) {
 		clienteDTO.setId(id);
 		Cliente oldCliente = findById(id);
+		if (clienteDTO.getSenha().equals(oldCliente.getSenha())) {
+			clienteDTO.setSenha(encoder.encode(clienteDTO.getSenha()));
+		}
+
 		validaPorCpfEEmail(clienteDTO);
 		oldCliente = new Cliente(clienteDTO);
-		
+		oldCliente.setSenha(clienteDTO.getSenha());
 		return clienteRepository.save(oldCliente);
 	}
 
 	public Cliente delete(Integer id) {
 		Cliente cliente = findById(id);
-		if(cliente.getChamados().size() > 0) {
-			throw new com.moutinho.helpDesk.services.exceptions.DataIntegrityViolationException
-			(" Cliente Possui Ordens de serviço e não pode ser deletado!");
-		} 
+		if (cliente.getChamados().size() > 0) {
+			throw new com.moutinho.helpDesk.services.exceptions.DataIntegrityViolationException(
+					" Cliente Possui Ordens de serviço e não pode ser deletado!");
+		}
 		clienteRepository.deleteById(id);
-		
+
 		return null;
 	}
 
