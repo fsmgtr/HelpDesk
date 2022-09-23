@@ -1,5 +1,6 @@
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+ 
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -39,6 +40,11 @@ import { NgxMaskModule } from 'ngx-mask';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
 import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
 import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
+import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+ 
  
 
 @NgModule({
@@ -53,6 +59,10 @@ import { ClienteCreateComponent } from './components/cliente/cliente-create/clie
     TecnicoUpdateComponent,
     TecnicoDeleteComponent,
     ClienteCreateComponent,
+    ClienteUpdateComponent,
+    ClienteDeleteComponent,
+    ClienteListComponent,
+    ChamadoListComponent
    
   ],
   imports: [
@@ -86,6 +96,7 @@ import { ClienteCreateComponent } from './components/cliente/cliente-create/clie
     }),
     NgxMaskModule.forRoot()
   ],
+  schemas: [ CUSTOM_ELEMENTS_SCHEMA],
   providers: [AutenticacaoInterceptorProvider],
   bootstrap: [AppComponent]
 })

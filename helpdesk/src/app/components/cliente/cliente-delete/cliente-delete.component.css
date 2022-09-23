@@ -1,0 +1,46 @@
+.container{
+    width: 35rem;
+    margin:auto;
+    padding: 1rem 1rem 3rem 1rem;
+    border-radius:.06rem;
+}
+
+.fullwidth{
+    width: 100%;
+}
+h1{
+    text-align: center;
+}
+
+img{
+    height: 10rem;
+    margin: auto;
+    margin-left: 35%;
+    margin-bottom: 15px;
+}
+
+.section{
+margin-bottom: 1rem;
+display: flex;
+justify-content: space-between;
+}
+
+.margin{
+    color:radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+
+button{
+    margin-top: 1rem;
+}
+
+#btnCadastrar{
+    background: radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%);
+}
+#btnCancelar{
+    background: rgb(131,58,180);
+background: linear-gradient(90deg, rgba(131,58,180,1) 0%, rgba(236,5,5,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+mat-icon {
+    opacity: 1.8;
+}

@@ -1,6 +1,11 @@
 import { Component, NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { AutenticacaoGuard } from './autenticacao/autenticacao.guard';
+import { ChamadoListComponent } from './components/chamado/chamado-list/chamado-list.component';
+import { ClienteCreateComponent } from './components/cliente/cliente-create/cliente-create.component';
+import { ClienteDeleteComponent } from './components/cliente/cliente-delete/cliente-delete.component';
+import { ClienteListComponent } from './components/cliente/cliente-list/cliente-list.component';
+import { ClienteUpdateComponent } from './components/cliente/cliente-update/cliente-update.component';
 import { HomeComponent } from './components/home/home.component';
 import { LoginComponent } from './components/login/login.component';
 import { NavComponent } from './components/nav/nav.component';
@@ -22,7 +27,7 @@ const routes: Routes = [
         path: 'home',
         component: HomeComponent
       },
-      
+      //tecnicos
       {
         path: 'tecnicos',
         component: TecnicoListComponent
@@ -38,7 +43,33 @@ const routes: Routes = [
       {
         path: 'tecnicos/delete/:id',
         component: TecnicoDeleteComponent
+      },
+      //clientes
+      {
+        path: 'clientes',
+        component: ClienteListComponent
+      },
+      {
+        path: 'clientes/create',
+        component: ClienteCreateComponent
+      },
+      {
+        path: 'clientes/update/:id',
+        component: ClienteUpdateComponent
+      },
+      {
+        path: 'clientes/delete/:id',
+        component: ClienteDeleteComponent
+      },
+      //chamados
+
+      {
+        path: 'chamados', component: ChamadoListComponent
       }
+
+
+
+
     ]
   }
 
