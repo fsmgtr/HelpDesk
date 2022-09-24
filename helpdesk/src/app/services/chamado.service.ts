@@ -33,6 +33,9 @@ buscarTodos(): Observable<Chamado[]>{
 create(cliente : Cliente): Observable<Cliente>{
   return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente);
 }
+criarChamado(chamado: Chamado):Observable<Chamado>{
+  return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado);
+}
 
  isValidCPF(cpf: any) {
   if (typeof cpf !== "string") return false
