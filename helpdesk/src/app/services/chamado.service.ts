@@ -29,13 +29,19 @@ update(cliente: Cliente): Observable<Cliente> {
 buscarTodos(): Observable<Chamado[]>{
  return this.http.get<Chamado[]>(`${API_CONFIG.baseUrl}/chamados`);
 }
-
+buscarPorID(id: any): Observable<Chamado>{
+  return this.http.get<Chamado>(`${API_CONFIG.baseUrl}/chamados/${id}`);
+ }
 create(cliente : Cliente): Observable<Cliente>{
   return this.http.post<Cliente>(`${API_CONFIG.baseUrl}/clientes`, cliente);
 }
 criarChamado(chamado: Chamado):Observable<Chamado>{
   return this.http.post<Chamado>(`${API_CONFIG.baseUrl}/chamados`, chamado);
 }
+AtualizarChamado(chamado: Chamado):Observable<Chamado>{
+  return this.http.put<Chamado>(`${API_CONFIG.baseUrl}/chamados/${chamado.id}`, chamado);
+}
+
 
  isValidCPF(cpf: any) {
   if (typeof cpf !== "string") return false
